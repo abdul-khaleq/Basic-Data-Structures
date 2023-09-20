@@ -27,18 +27,19 @@ void print_linked_list(Node *head){
     }
     cout<<endl;
 }
-void print_recursion(Node *n){
-    //base case
-    if(n == NULL) return;
-    cout<<n->val<<" ";
-    print_reverse(n->next);
-}
 void print_reverse(Node *n){
     //base case
     if(n == NULL) return;
     print_reverse(n->next);
     cout<<n->val<<" ";
 }
+// void print_recursion(Node *n){
+//     //base case
+//     if(n == NULL) return;
+//     cout<<n->val<<" ";
+//     print_reverse(n->next);
+// }
+
 int main(){
     Node *head = NULL;
     Node *tail = NULL;

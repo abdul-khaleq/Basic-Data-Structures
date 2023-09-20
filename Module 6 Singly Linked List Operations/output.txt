@@ -1,1 +1,4 @@
-.  
+Option 1: Insert at Tail
+Option 2: Print Linked List
+Option 3: Insert at any position
+Option 4: Terminate

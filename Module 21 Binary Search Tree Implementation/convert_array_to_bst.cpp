@@ -1,58 +1,68 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Node{
-    public:
+class Node
+{
+public:
     int val;
-    Node* left;
-    Node* right;
-    Node(int val){
+    Node *left;
+    Node *right;
+    Node(int val)
+    {
         this->val = val;
         this->left = NULL;
         this->right = NULL;
     }
 };
-Node* convert(int a[], int n, int l, int r){
-    if(l > r){
+Node *convert(int a[], int n, int l, int r)
+{
+    if (l > r)
+    {
         return NULL;
     }
-    int mid = (l+r) / 2;
-    Node* root = new Node(a[mid]);
-    Node* leftRoot = convert(a, n, l, mid-1);
-    Node* rightRoot = convert(a, n, mid+1, r);
+    int mid = (l + r) / 2;
+    Node *root = new Node(a[mid]);
+    Node *leftRoot = convert(a, n, l, mid - 1);
+    Node *rightRoot = convert(a, n, mid + 1, r);
     root->left = leftRoot;
     root->right = rightRoot;
     return root;
 }
-void level_order(Node* root){
-     if(root == NULL){
-        cout<<"The Tree is empty"<<endl;
+void level_order(Node *root)
+{
+    if (root == NULL)
+    {
+        cout << "The Tree is empty" << endl;
         return;
     }
-    queue<Node*> q;
+    queue<Node *> q;
     q.push(root);
-    while(!q.empty()){
-        Node* f = q.front();
+    while (!q.empty())
+    {
+        Node *f = q.front();
         q.pop();
 
-        cout<<f->val<<" ";
+        cout << f->val << " ";
 
-    if(f->left) q.push(f->left);
-    if(f->right) q.push(f->right);
-
+        if (f->left)
+            q.push(f->left);
+        if (f->right)
+            q.push(f->right);
     }
 }
-int main(){
+int main()
+{
     int n;
-    cin>>n;
+    cin >> n;
     int a[n];
-    for(int i=0; i<n; i++){
-        cin>>a[i];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
     }
-    // Node* root = convert(a, n, 0, n-1);
-    // level_order(root);
+    Node *root = convert(a, n, 0, n - 1);
+    level_order(root);
 
-    vector<int> v ={1,2,3};
-    cout<<v[2];
     return 0;
 }
 
+// 5
+// 5 8 12 15 18
